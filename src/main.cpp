@@ -8,14 +8,16 @@
 
 using namespace std;
 #define ROOT "/opt/vroomm4k"
+#define CONFIGPATH "/opt/vroomm4k/config"
+#define CONFIGFILE "/opt/vroomm4k/config/vroomm4k.conf"
 Log HxRGlog;
 
 int main(int argc, char *argv[]) {
   // we nee to override BASEPATH and CONFIGFILE
 
 
-  std::string configfile = cfg_get_string(join(ROOT, "/config/vroomm4k.conf",'/'), "CONFIGPATH","");
-  if (configfile.compare("")==0){return 1;}
+  std::string configfile = CONFIGFILE;
+  if (configfile.compare("")==0){std::cout<<"Config file not found"<<std::endl;return 1;}
   std::string logpath = cfg_get_string(configfile, "LOGPATH","/var/tmp/");
   // set the log path
   HxRGlog.setPath(logpath);
@@ -33,8 +35,8 @@ int main(int argc, char *argv[]) {
   //::::::::::::::::::::::::::::::::::::::::::::
   //:::   Start the UDP and TCP/IP handler   :::
   //::::::::::::::::::::::::::::::::::::::::::::
-  uics UICS(&handle, configfile,
-            configfile, false);
+  uics UICS(&handle, CONFIGPATH,
+            CONFIGPATH, false);
 
   //::::::::::::::::::::::::::::::::::::::
   //:::   Setup the forced transition  :::
