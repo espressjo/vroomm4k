@@ -1,6 +1,7 @@
 #include "vroomm4k_devices.h"
 #include "vroomm4k_getstatus.h"
 #include "devManagerCtrl.h"
+#include "vroomm4k_standard_cmd.h"
 #include "insthandle.h"
 #include <uics.h>
 #include <uics/uics_config.h>
@@ -54,7 +55,7 @@ int main(int argc, char *argv[]) {
   //::::::::::::::::::::::::::::::::::::::
 
 
- // UICS.add_function("cooler", cooler, CONFIG);
+  UICS.add_function("cooler", cooler, CONFIG);
   UICS.add_function("devCtrl", dev_ctrl_status, CONFIG);
 
   UICS.run();

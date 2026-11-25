@@ -25,7 +25,8 @@ CFLAGS = -std=c++17 -g
 OBJS =	main.o \
 				vroomm4k_getstatus.o \
 				vroomm4k_devices.o \
-				devManagerCtrl.o
+				devManagerCtrl.o \
+				vroomm4k_standard_cmd.o
 
 all: $(OBJS)
 	$(CC)  $(CPPFLAGS) $(CFLAGS) $(OBJS) $(LDFLAGS) -o $(TARGET) $(INCL) $(LIB)
