@@ -56,6 +56,7 @@ int main(int argc, char *argv[]) {
 
 
   UICS.add_function("cooler", cooler, CONFIG);
+  UICS.add_function("lakeshore", lakeshore, CONFIG);
   UICS.add_function("devCtrl", dev_ctrl_status, CONFIG);
 
   UICS.run();
